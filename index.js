@@ -16,8 +16,15 @@ const schema = new GraphQLSchema({
     })
 })
 
+const rootQueryType = new GraphQLObjectType({
+    name: 'Query',
+    description: 'Root Query',
+    fields: _ => {}
+})
+
 app.use('/graphql', graphqlHTTP({
     schema,
     graphiql: true
 }))
+
 app.listen(port, _ => console.log(`listening to ${port}`))
